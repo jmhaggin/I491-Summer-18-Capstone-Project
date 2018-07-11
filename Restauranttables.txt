@@ -1,0 +1,94 @@
+//Table for the menu
+
+create table menu (
+	itemID int not null auto_increment,
+	name varchar(50),
+	price varchar(6),
+	description varchar(200),
+	category varchar(10),
+	status varchar(3),
+	PRIMARY KEY (itemID))
+ENGINE=INNODB;
+--------------------------------------------------------------
+//Table for the vip list
+
+create table VIPlist (
+	VIPid int not null auto_increment,
+	fname varchar(15),
+	lname varchar(15),
+	email varchar(25),
+	dob varchar(10),
+	PRIMARY KEY (VIPid))
+ENGINE=INNODB;
+
+
+create table user (
+	userID int not null auto_increment,
+	username varchar(50) not null,
+	password varchar(255) not null,
+	PRIMARY KEY (userID))
+ENGINE=INNODB;
+
+
+--------------------------------------------------------------
+create table starter (
+	starterID int not null auto_increment,
+	name varchar(20) not null,
+	price varchar(6) not null,
+	description varchar(200) not null,
+	status varchar(3),
+	CHECK (status='YES' or status='NO'),
+	PRIMARY KEY (starterID))
+ENGINE=INNODB;
+	
+create table drink (
+	drinkID int not null auto_increment,
+	name varchar(20) not null,
+	price varchar(6) not null,
+	desc varchar(200) not null,
+	status varchar(3),
+	CHECK (status='YES' or status='NO'),
+	PRIMARY KEY (starterID))
+ENGINE=INNODB;
+
+create table sandwich (
+	sandwichID int not null auto_increment,
+	name varchar(20) not null,
+	price varchar(6) not null,
+	desc varchar(200) not null,
+	status varchar(3),
+	CHECK (status='YES' or status='NO'),
+	PRIMARY KEY (sandwichID))
+ENGINE=INNODB;
+
+create table salad (
+	saladID int not null auto_increment,
+	name varchar(20) not null,
+	price varchar(6) not null,
+	desc varchar(200) not null,
+	status varchar(3),
+	CHECK (status='YES' or status='NO')
+	PRIMARY KEY (saladID))
+ENGINE=INNODB;
+
+create table entree (
+	entreeID int not null auto_increment,
+	name varchar(20) not null,
+	price varchar(6) not null,
+	desc varchar(200) not null,
+	status varchar(3),
+	CHECK (status='YES' or status='NO')
+	PRIMARY KEY (entreeID))
+ENGINE=INNODB;
+
+create table dessert (
+	dessertID int not null auto_increment,
+	name varchar(20) not null,
+	price varchar(6) not null,
+	desc varchar(200) not null,
+	status varchar(3),
+	CHECK (status='YES' or status='NO')
+	PRIMARY KEY (dessertID))
+ENGINE=INNODB;
+
+	

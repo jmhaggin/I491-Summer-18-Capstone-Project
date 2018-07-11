@@ -1,0 +1,42 @@
+INSERT INTO menu (name,price,description,category,status)
+VALUES	('Mozzarella Sticks','9.99', 'Fine mozzarella cheese in our house breading deep fried. Served with marinara and ranch','STARTER', 'YES'),
+('Potato Skins','8.99', 'Fresh potatos twice cooked, sliced, and topped with bacon, cheese, and scallions','STARTER','YES'),
+('Pretzel Sticks','6.99', 'Homemade pretzel twists served with spicy mustard and beer cheese sauce','STARTER','YES'),
+('Spinach and Artichoke Dip','8.99','A mix of artichokes and spinach a creamy italian 3 cheese sauce. Served with a garlic bread','STARTER','YES');
+
+INSERT INTO menu (name,price,description,category,status)
+VALUES	('Soda','1.99','Pepsi Products','DRINK','YES'),
+('Lemonade','2.50','Fresh squeezed lemonade','DRINK','YES'),
+('Beer','2.50','A wide selection of local made and other beers','DRINK','YES'),
+
+('Ceasar Salad','6.99','Romaine lettuce topped with our house ceasar dressing, croutons, and grated parmesan cheese','SALAD','YES'),
+('Toss Salad','7.99','Romaine lettuce topped with vinaigrette, tomato, cucumber, carrot, and red onion','SALAD','YES'),
+('Cobb Salad','9.99','Iceberg lettuce topped with ranch, chicken, bacon, hard boiled eggs, tomato, onion, avocado, and blue cheese','SALAD','YES'),
+
+('BLT','9.99','Thick cut applewood smoked bacon, iceberg lettuce, sliced tomato, and mayo served on your choice of bread. Side of chips','SANDWICH','YES'),
+('Rueben','11.99','Corned beef, swiss cheese, sauerkraut, and thousand island dressing served on Rye bread and grilled. Side of fries','SANDWICH','YES'),
+('Italian Beef','12.99','Our slow cooked italian beef with giardiniera and roasted red peppers on a hoagie roll. Side of fries','SANDWICH','YES'),
+('Cheeseburger','13.99','Half pound beef patty with your choice of cheese served with lettuce, onion, and tomato. Side of fries','SANDWICH','YES'),
+
+('Chicken Wings','14.99', 'Un-breaded wings fried and tossed in your choice of sauce served with celery, blue cheese, and a side of fries','ENTREE','YES'),
+('Pork Chop','19.99', 'Grilled bone-in chop topped with lemon herb sauce. Served with rice and vegetable medley','ENTREE','YES'),
+('Fish and Chips','17.99','North Atlantic Cod beer battered and fried served with tarter sauce and a side of fries','ENTREE','YES'),
+('NY Strip','25.99','12oz strip steak topped with red wine sauce. Served with mashed potatoes and asparagus','ENTREE','YES'),
+
+('Cheesecake','9.99','Homemade cheesecake topped with your choice of strawberry or blueberry topping','DESSERT','YES'),
+('Chocolate Lava Cake','9.99','Fresh chocolate cake with molten chocolate center and a side of vanilla ice cream','DESSERT','YES'),
+('Mousse','7.99','Homemade chocolate espresso mousse','DESSERT','YES');
+
+
+
+INSERT INTO VIPlist (fname,lname,email,dob) VALUES
+('Doug','Dimmadome','dddome@gmail.com','2001-03-30');
+
+
+('Joe','Fisher','fisherman@gmail.com','1989-09-07'),
+('Ron','First','rfirst@gmail.com','1960-10-02'),
+('Jake','Marsh','jakem@gmail.com','1995-06-11'),
+('Justin','James','jjames@gmail.com','1985-03-19'),
+('Pat','Lehr','pl1@gmail.com','1973-12-25'),
+('Tyler','Myers','tm91@gmail.com','1991-05-07')
+;
