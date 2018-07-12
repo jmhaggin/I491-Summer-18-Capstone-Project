@@ -65,13 +65,13 @@
 				</select>
 				<br><br>
 				<label for="name">Item Name</label>
-				<input type="text" name="name" placeholder="Item Name" required>
-				
+				<input type="text" name="name" placeholder="Item Name" pattern="([A-Za-z\h\.]{1,200})" required>
+				<!--added in validation around here-->
 				<label for="price">Item Price</label>
 				<input type="text" name="price" placeholder="Item Price" pattern="(\d{1,3})+(\.\d{2})$" title="Must be formatted like a price: up 3 letters, a period, followed by exactly 2 numbers" required>
 				
 				<label for="description">Item Description</label>
-				<input type="text" name="description" placeholder="Item Description" required>
+				<input type="text" name="description" placeholder="Item Description" pattern="([A-Za-z\h\.]{1,200})" required>
 				
 				<label for="status">Item Status</label>
 				<input type="radio" name="status" value="ON" checked="Checked">ON <input type="radio" name="status" value="OFF">OFF	

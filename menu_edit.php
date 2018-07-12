@@ -34,8 +34,9 @@ if(IsInjected($var_itemname) or IsInjected($var_attribute) or IsInjected($var_ne
 	die ("You entered a bad email address");
 	
 }
+//If it passes the inject test it validates the info and runs the query
 else {
-	if (($var_attribute=="price") and (preg_match("(\d{1,3})+(\.\d{2})$",$var_newinfo))) {
+	if ($var_attribute=="price" and preg_match("/(\d{1,3})\.(\d{2})/",$var_newinfo)) {
 		//run query
 		$sql="update menu set $var_attribute='$var_newinfo' where name='$var_itemname'";
 
@@ -43,7 +44,7 @@ else {
 			{header('Location: http://cgi.soic.indiana.edu/~jmhaggin/Restaurant/EditMenu.php');}
 		Else
 			{ die('SQL Error: ' . mysqli_error($con)); }}
-	elseif (($var_attribute=="category") and (in_array(strtoupper($var_newinfo),$categories))) {
+	elseif ($var_attribute=="category" and in_array(strtoupper($var_newinfo),$categories)) {
 		//run query
 		$var_newinfo=strtoupper($var_newinfo);
 		$sql="update menu set $var_attribute='$var_newinfo' where name='$var_itemname'";
@@ -52,7 +53,7 @@ else {
 			{header('Location: http://cgi.soic.indiana.edu/~jmhaggin/Restaurant/EditMenu.php');}
 		Else
 			{ die('SQL Error: ' . mysqli_error($con)); }}
-	elseif ((!$var_attribute=="price" and !$var_attribute=="category") and (preg_match("([A-Za-z\h\.]{1,200})",$var_newinfo))) {
+	elseif ((!$var_attribute=="price" and !$var_attribute=="category") and preg_match("/([A-Za-z\h\.]{1,200})/",$var_newinfo)) {
 		//run query
 		$sql="update menu set $var_attribute='$var_newinfo' where name='$var_itemname'";
 
