@@ -1,3 +1,4 @@
+<!--starts session to check if user is logged in-->
 <?php 
 	session_start();
 	if($_SESSION['login']!=true) {

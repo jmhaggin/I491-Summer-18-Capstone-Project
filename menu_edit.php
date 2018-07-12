@@ -26,6 +26,8 @@ if (!$con)
 $var_itemname = mysqli_real_escape_string($con,$_POST['itemname']);
 $var_attribute = mysqli_real_escape_string($con,$_POST['attribute']);
 $var_newinfo = mysqli_real_escape_string($con,$_POST['newinfo']);
+
+//Array to check entry against
 $categories = array("STARTER","DRINK","SANDWICH","SALAD","ENTREE","DESSERT");
 
 //Runs the code inject function on the email submitted in the form
