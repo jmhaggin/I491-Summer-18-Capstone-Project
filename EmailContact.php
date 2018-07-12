@@ -20,12 +20,8 @@ $message2= "Here is a copy of the message you submitted to the Bistro on Walnut:
 //Puts together the email to be sent and returns a message to the user if the email was sent or not
 if (mail("BistroonWalnut@gmail.com",$subject,$message,$sender_email) and mail($sender_email,"Copy of your contact submission to the Bistro on Walnut",$message2))
 {
-	echo "Your message has been sent. Thank you for contacting the Bistro on Walnut. We will reply as soon as possible.";
+	header("Location:http://cgi.soic.indiana.edu/~jmhaggin/Restaurant/WalnutBistro.php#");
 }
-else
-{
-	echo "There was an error when attempting to send you message. Please resubmit your contact form";
-}}
 
 
 //Function to check if the email submitted in the form contains malicious code
