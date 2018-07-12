@@ -30,32 +30,33 @@ $var_description = mysqli_real_escape_string($con,$_POST['description']);
 $var_status = mysqli_real_escape_string($con,$_POST['status']);
 
 //Runs the code inject function on the email submitted in the form
-if(IsInjected($var_fname) or IsInjected($var_lname))
+if(IsInjected($var_name) or IsInjected($var_price) or IsInjected($var_description))
 { 
 	die ("You entered a bad email address");
 	
 }
 else {
+	$itemcheck="select * from menu where name='$var_name' and category='$var_category'";
+	$itemcheckresult = mysqli_query($con, $itemcheck);
+	$num_rows = mysqli_num_rows($itemcheckresult);
 
-$itemcheck="select * from menu where name='$var_name' and category='$var_category'";
-$itemcheckresult = mysqli_query($con, $itemcheck);
-$num_rows = mysqli_num_rows($itemcheckresult);
-
-if($itemcheckresult->num_rows>0) {
-    echo "This item already exists in this menu category. Please return and enter a new item";
-   }
-else
-    {
-//run query
-$sql="INSERT INTO menu (name,price,description,category,status) VALUES
-('$var_name','$var_price','$var_description','$var_category','$var_status')";
-if (mysqli_query($con,$sql)) 
-	{header('Location: http://cgi.soic.indiana.edu/~jmhaggin/Restaurant/EditMenu.php');}
-Else
-	{ die('SQL Error: ' . mysqli_error($con)); }
+	if($itemcheckresult->num_rows>0) {
+		echo "This item already exists in this menu category. Please return and enter a new item";
+	   }
+	else
+		{
+	//run query
+	$sql="INSERT INTO menu (name,price,description,category,status) VALUES
+	('$var_name','$var_price','$var_description','$var_category','$var_status')";
+	if (mysqli_query($con,$sql)) 
+		{header('Location: http://cgi.soic.indiana.edu/~jmhaggin/Restaurant/EditMenu.php');}
+	Else
+		{ die('SQL Error: ' . mysqli_error($con)); }
+		}
+mysqli_close($con);	
 	}
-mysqli_close($con);
-}
+	
+	
 //Function to check if the email submitted in the form contains malicious code
 function IsInjected($str)
 {

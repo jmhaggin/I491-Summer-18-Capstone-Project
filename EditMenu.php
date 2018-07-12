@@ -10,7 +10,7 @@
 <html>
 <head>
 
-	<title>VIP Customer List</title>
+	<title>Edit Menu</title>
 	<link rel="stylesheet" type="text/css" href="bistrostyle.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
@@ -99,7 +99,7 @@
 				</select>
 				<br><br>
 				
-				<label for="newinfo">New Information. If editting a price please enter up to 3 numbers, followed by a period, followed by exactly two more numbers. Anything else enter only letters/spaces or the follwing 4 characters:-().</label>
+				<label for="newinfo">New Information. If editting a price please enter up to 3 numbers, followed by a period, followed by exactly two more numbers. If editting item category please enter one of the following (starter,drink,sandwich,salad,entree,dessert). Anything else enter only letters/spaces or the follwing 4 characters:-().</label>
 				<input type="text" name="newinfo" placeholder="New Information" pattern="\d{1,3})\.\d{2}|[A-Za-z-()\h\.]{1,200}" required>
 				
 				<input type="submit" value="Edit Item">

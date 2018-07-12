@@ -57,8 +57,8 @@
 			<label for="username">Username</label>
 			<input type="text" id="username" name="username" placeholder="Username" required>
 			
-			<label for="pswrd">Password</label>
-			<input type="password" name="pswrd" placeholder="Enter Password" required>
+			<label for="pswrd">Password must be at least 8 characters long</label>
+			<input type="password" name="pswrd" placeholder="Enter Password" pattern=".{8,}" required>
 			
 			<input type="Submit" value="Submit">			
 		</form>

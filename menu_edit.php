@@ -26,7 +26,7 @@ if (!$con)
 $var_itemname = mysqli_real_escape_string($con,$_POST['itemname']);
 $var_attribute = mysqli_real_escape_string($con,$_POST['attribute']);
 $var_newinfo = mysqli_real_escape_string($con,$_POST['newinfo']);
-
+$categories = array("STARTER","DRINK","SANDWICH","SALAD","ENTREE","DESSERT");
 
 //Runs the code inject function on the email submitted in the form
 if(IsInjected($var_itemname) or IsInjected($var_attribute) or IsInjected($var_newinfo))
@@ -35,27 +35,37 @@ if(IsInjected($var_itemname) or IsInjected($var_attribute) or IsInjected($var_ne
 	
 }
 else {
-if (($_attribute=='price') and (preg_match("\d{1,3}\.\d{2}$",$var_newinfo) {
-	//run query
-	$sql="update menu set $var_attribute='$var_newinfo' where name='$var_itemname'";
+	if (($var_attribute=="price") and (preg_match("(\d{1,3})+(\.\d{2})$",$var_newinfo))) {
+		//run query
+		$sql="update menu set $var_attribute='$var_newinfo' where name='$var_itemname'";
 
-	if (mysqli_query($con,$sql)) 
-		{echo "Item successfully updated";}
-	Else
-		{ die('SQL Error: ' . mysqli_error($con)); }}
-elseif (preg_match("[A-Za-z-()\h\.]{1,200}",$var_newinfo) {
-	//run query
-	$sql="update menu set $var_attribute='$var_newinfo' where name='$var_itemname'";
+		if (mysqli_query($con,$sql)) 
+			{header('Location: http://cgi.soic.indiana.edu/~jmhaggin/Restaurant/EditMenu.php');}
+		Else
+			{ die('SQL Error: ' . mysqli_error($con)); }}
+	elseif (($var_attribute=="category") and (in_array(strtoupper($var_newinfo),$categories))) {
+		//run query
+		$var_newinfo=strtoupper($var_newinfo);
+		$sql="update menu set $var_attribute='$var_newinfo' where name='$var_itemname'";
 
-	if (mysqli_query($con,$sql)) 
-		{echo "Item successfully updated";}
-	Else
-		{ die('SQL Error: ' . mysqli_error($con)); }}
-else {
-	echo "The new information you entered did not match the required pattern for that item attribute. Please return to the edit menu page and retry your entry";}
+		if (mysqli_query($con,$sql)) 
+			{header('Location: http://cgi.soic.indiana.edu/~jmhaggin/Restaurant/EditMenu.php');}
+		Else
+			{ die('SQL Error: ' . mysqli_error($con)); }}
+	elseif ((!$var_attribute=="price" and !$var_attribute=="category") and (preg_match("([A-Za-z\h\.]{1,200})",$var_newinfo))) {
+		//run query
+		$sql="update menu set $var_attribute='$var_newinfo' where name='$var_itemname'";
+
+		if (mysqli_query($con,$sql)) 
+			{header('Location: http://cgi.soic.indiana.edu/~jmhaggin/Restaurant/EditMenu.php');}
+		Else
+			{ die('SQL Error: ' . mysqli_error($con)); }}
+	else {
+		echo "<b>The new information you entered did not match the required pattern for that item attribute. Please return to the edit menu page and retry your entry<b>";}
 
 mysqli_close($con);
 }
+
 
 //Function to check if the email submitted in the form contains malicious code
 function IsInjected($str)

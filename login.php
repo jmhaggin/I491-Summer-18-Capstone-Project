@@ -51,6 +51,6 @@ else {
 }
 ?>
 <br>
-<a href="http://cgi.soic.indiana.edu/~jmhaggin/Restaurant/LoginForm.php" style="font-size:40px; font-style:bold; color:black;">Return to Registration Form</a>
+<a href="http://cgi.soic.indiana.edu/~jmhaggin/Restaurant/LoginForm.php" style="font-size:40px; font-style:bold; color:black;">Return to Login Form</a>
 </body>
 </html>
